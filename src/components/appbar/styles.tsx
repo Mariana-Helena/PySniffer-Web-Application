@@ -20,11 +20,11 @@ const useStyles = makeStyles((theme: Theme) =>
       "&:hover": {
         color: "#E2B75F",
       },
-      marginLeft: "30px"
+      marginLeft: "30px",
     },
     logo: {
-      width: "80px"
-    }
+      width: "80px",
+    },
   })
 );
 
