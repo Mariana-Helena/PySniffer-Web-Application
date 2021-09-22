@@ -4,12 +4,13 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     background: {
       width: "100%",
+      minWidth:"1500px",
       height: "auto",
       backgroundSize: "cover",
     },
     body: {
       width: "100%",
-      height: "2000px",
+      height: "1400px",
     },
     button: {
       backgroundColor: "#B48C3E !important",
@@ -28,7 +29,7 @@ const useStyles = makeStyles((theme: Theme) =>
       paddingLeft: 5,
     },
     textDiv: {
-      paddingTop: "100px",
+      paddingTop: "80px",
       paddingLeft: "30px",
       width: "450px",
     },
@@ -43,8 +44,9 @@ const useStyles = makeStyles((theme: Theme) =>
       wordBreak: "break-all",
     },
     rankingDiv: {
-      paddingTop: "230px",
+      paddingTop: "200px",
       paddingLeft: "30px",
+      paddingRight: "220px",
       width: "450px",
       display: "inline-block",
     },
@@ -74,15 +76,6 @@ const useStyles = makeStyles((theme: Theme) =>
       color: "#000",
       fontFamily: "Montserrat !important",
     },
-    chartDiv: {
-      display: "inline-block",
-    },
-    chart: {
-      width: "600px",
-      marginLeft: "300px",
-      position: "relative",
-      top: "150px"
-    },
     list: {
       marginTop: "20px",
       maxHeight: "350px",
@@ -98,11 +91,46 @@ const useStyles = makeStyles((theme: Theme) =>
         background: '#888',
       },
     },
-
     downloadButton: {
       backgroundColor: "#B48C3E !important",
       marginTop: "50px !important",
       width: "150px",
+    },   
+    div:{
+      display: "inline-block",
+    },
+    infoDiv: {
+      display: "inline-block",
+      marginLeft: "50px",
+    },
+    icon: {
+      fontSize: "100px  !important",
+      color: "#fff"
+    },
+    info: {
+      marginLeft: "15px",
+      position: "relative",
+      float: "right",
+    },
+    infoText: {
+      color: "#fff",
+      fontFamily: "Montserrat !important",
+    },
+    infoNumber: {
+      color: "#fff",
+      fontFamily: "Montserrat !important",
+      fontSize: "60px !important",
+    },
+    noteDiv:{
+      width: "800px",
+      marginTop: "20px"
+    },
+    note: {
+      color: "#fff",
+      fontFamily: "Montserrat !important",
+      fontSize: "12px",
+      wordBreak: "break-all"    
+
     }
   })
 );

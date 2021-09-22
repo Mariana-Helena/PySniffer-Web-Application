@@ -3,7 +3,9 @@ import useStyles from "./styles";
 import background from "../../assets/img/Background.png";
 import NavAppBar from "../../components/appbar";
 import { Button, ListItem, ListItemText } from "@material-ui/core";
-import top10 from "../../assets/img/top10.png";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import InsertDriveFileOutlinedIcon from '@material-ui/icons/InsertDriveFileOutlined';
+import SettingsApplicationsOutlined from '@material-ui/icons/SettingsApplicationsOutlined';
 
 export default function Home() {
   const classes = useStyles();
@@ -39,6 +41,10 @@ export default function Home() {
     },
   ];
 
+  const projects = 30;
+  const files = 321;
+  const modules = 673;
+
   return (
     <div>
       <NavAppBar />
@@ -73,7 +79,7 @@ export default function Home() {
           <br />
           <div className={classes.rankingDiv}>
             <span className={classes.rankingSubtitle}>
-              Python Open Source Projects
+              Python Open Source Projects*
             </span>
             <br />
             <span className={classes.rankingTitle}>Most Used Modules</span>
@@ -95,9 +101,37 @@ export default function Home() {
               <span className={classes.buttonText}>Download List</span>
             </Button>
           </div>
-          <div className={classes.chartDiv}>
-            <img src={top10} alt="Top 10 Bar Chart" className={classes.chart} />
+          <div className={classes.div}>
+          <div className={classes.infoDiv}>
+            <GitHubIcon className={classes.icon} />
+            <div className={classes.info}>
+              <span className={classes.infoNumber}>{projects}</span>
+              <br />
+              <span className={classes.infoText}> repositories</span>
+            </div>
           </div>
+          <div className={classes.infoDiv}>
+            <InsertDriveFileOutlinedIcon className={classes.icon} />
+            <div className={classes.info}>
+              <span className={classes.infoNumber}>{files}</span>
+              <br />
+              <span className={classes.infoText}> .py files</span>
+            </div>
+          </div>
+          <div className={classes.infoDiv}>
+            <SettingsApplicationsOutlined className={classes.icon} />
+            <div className={classes.info}>
+              <span className={classes.infoNumber}>{modules}</span>
+              <br />
+              <span className={classes.infoText}> modules</span>
+            </div>
+          </div>
+          <br/>
+          <div className={classes.noteDiv}>
+          <span className={classes.note}> *Data were collected from Python projects in open source GitHub repositories, being selected those with the highest score (highest number of stars),etc ..... Projects aimed at teaching were not considered and ...</span>          
+          </div>
+          </div>
+          
         </div>
       </div>
     </div>

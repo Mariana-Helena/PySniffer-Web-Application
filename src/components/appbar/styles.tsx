@@ -4,6 +4,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
+      minWidth:"1500px",
     },
     menuButton: {
       marginRight: theme.spacing(2),
@@ -12,6 +13,8 @@ const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: "#000E22",
     },
     button: {
+      width: "150px",
+      minWidth: "150px",
       fontFamily: "Montserrat",
       textTransform: "capitalize",
       "&:focus": {
@@ -20,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
       "&:hover": {
         color: "#E2B75F",
       },
-      marginLeft: "30px",
+      marginLeft: "0px",
     },
     logo: {
       width: "80px",
