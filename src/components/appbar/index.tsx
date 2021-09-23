@@ -5,11 +5,12 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import useStyles from "./styles";
 import logo from "../../assets/img/GrayLogo.png";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 export default function NavAppBar() {
   const classes = useStyles();
   const history = useHistory();
+  const location = useLocation();
 
   const changeRoute = (route: string) => {
     history.push(route);
@@ -38,7 +39,7 @@ export default function NavAppBar() {
           </IconButton>
           <Button
             color="inherit"
-            className={classes.button}
+            className={location.pathname==='/statistics'? classes.buttonSelected: classes.button}
             onClick={() => changeRoute("/statistics")}
           >
             Statistics

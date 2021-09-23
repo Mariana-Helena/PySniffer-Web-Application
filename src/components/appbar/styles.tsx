@@ -25,6 +25,20 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       marginLeft: "0px",
     },
+    buttonSelected: {
+      width: "150px",
+      minWidth: "150px",
+      fontFamily: "Montserrat",
+      textTransform: "capitalize",
+      color: "#E2B75F",
+      "&:focus": {
+        color: "#E2B75F",
+      },
+      "&:hover": {
+        color: "#fff",
+      },
+      marginLeft: "0px",
+    },
     logo: {
       width: "80px",
     },
