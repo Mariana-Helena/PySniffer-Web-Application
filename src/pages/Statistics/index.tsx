@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import useStyles from "./styles";
 import NavAppBar from "../../components/appbar";
-import { VictoryChart, VictoryBar } from "victory";
+import { VictoryChart, VictoryBar, VictoryAxis } from "victory";
 
 interface chartBar {
   x: string;
@@ -96,15 +96,14 @@ export default function Statistics() {
     var i = 0;
     list.forEach((element) => {
       var bar: chartBar = {
-        x : element.name,
-        y : element.amount,
-        color : colors[i],
+        x: element.name,
+        y: element.amount,
+        color: colors[i],
       };
       bars.push(bar);
       i++;
     });
-    console.log(bars);
-    setTop10(bars);
+    setTop10(bars.reverse());
   };
 
   const sortList = (list: any) => {
@@ -119,16 +118,25 @@ export default function Statistics() {
       <div className={classes.background}>
         <div className={classes.body}>
           <div className={classes.chart}>
-            <VictoryChart domainPadding={30}>
-              <VictoryBar
+            <VictoryChart domainPadding={10} >
+              <VictoryBar horizontal
                 data={top10}
-                barWidth={30}
+                barWidth={20}
                 style={{
                   data: {
                     fill: ({ datum }) => datum.color,
                   },
                 }}
+                labels={({ datum }) => `${datum.y}`}
               />
+              {top10.map((d: any, i) => {
+                return (
+                  <VictoryAxis
+                    label={d.name}
+                    
+                  />
+                );
+              })}
             </VictoryChart>
           </div>
         </div>
