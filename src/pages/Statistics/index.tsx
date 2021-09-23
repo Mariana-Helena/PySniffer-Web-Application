@@ -119,9 +119,10 @@ export default function Statistics() {
       <div className={classes.background}>
         <div className={classes.body}>
           <div className={classes.chart}>
-            <VictoryChart domainPadding={10}>
+            <VictoryChart domainPadding={30}>
               <VictoryBar
                 data={top10}
+                barWidth={30}
                 style={{
                   data: {
                     fill: ({ datum }) => datum.color,

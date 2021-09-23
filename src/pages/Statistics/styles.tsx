@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) =>
       height: "1400px",
     },
     chart: {
-      width: "800px"
+      width: "900px"
     }
   })
 );
