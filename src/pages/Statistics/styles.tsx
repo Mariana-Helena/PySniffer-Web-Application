@@ -14,8 +14,27 @@ const useStyles = makeStyles((theme: Theme) =>
       height: "1400px",
     },
     chart: {
-      height: "500px"
-    }
+      height: "480px",
+      width: "800px",
+      paddingLeft: "50px"
+    },
+    pieChart: {
+      height: "400px",
+      padding: "50px"
+    },
+    textDiv: {
+      paddingLeft: "30px",
+    },
+    title: {
+      color: "#fff",
+      fontFamily: "Montserrat !important",
+      fontSize: "40px !important",
+    },
+    subtitle: {
+      color: "#E2B75F",
+      fontFamily: "Montserrat !important",
+      paddingLeft: 5,
+    },
   })
 );
 

@@ -82,7 +82,7 @@ export default function Home() {
               Python Open Source Projects*
             </span>
             <br />
-            <span className={classes.rankingTitle}>Most Used Modules</span>
+            <span className={classes.rankingTitle}>List of Found Modules</span>
             <br />
             <div className={classes.list}>
               {modulesList.map((mod, index) => (

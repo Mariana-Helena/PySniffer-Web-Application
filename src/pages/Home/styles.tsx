@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme: Theme) =>
     rankingTitle: {
       color: "#000",
       fontFamily: "Montserrat !important",
-      fontSize: "40px !important",
+      fontSize: "35px !important",
     },
     number: {
       color: "#B48C3E",

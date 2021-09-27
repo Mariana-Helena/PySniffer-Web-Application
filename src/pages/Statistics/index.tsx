@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import useStyles from "./styles";
 import NavAppBar from "../../components/appbar";
-import { VictoryChart, VictoryBar, VictoryAxis } from "victory";
-
+import { VictoryChart, VictoryBar, VictoryAxis, VictoryPie } from "victory";
+import background from "../../assets/img/Background2.png";
 interface chartBar {
   x: string;
   y: number;
@@ -11,6 +11,8 @@ interface chartBar {
 
 export default function Statistics() {
   const classes = useStyles();
+
+  const [hovered, setHovered] = React.useState(false);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -115,29 +117,130 @@ export default function Statistics() {
   return (
     <div>
       <NavAppBar />
-      <div className={classes.background}>
+      <div
+        className={classes.background}
+        style={{ backgroundImage: `url(${background})` }}
+      >
         <div className={classes.body}>
-          <div className={classes.chart}>
-            <VictoryChart domainPadding={10} >
-              <VictoryBar horizontal
+          <div>
+            <div className={classes.textDiv}>
+              <span className={classes.title}>Most Used Modules</span>
+            </div>
+            <div className={classes.chart}>
+              <VictoryChart domainPadding={10}>
+                <VictoryBar
+                  horizontal
+                  data={top10}
+                  barWidth={20}
+                  style={{
+                    data: {
+                      fill: ({ datum }) => datum.color,
+                    },
+                    labels: {
+                      fontSize: 10,
+                      fill: "#D9D9D9",
+                    },
+                  }}
+                  labels={({ datum }) => `${datum.y}`}
+                />
+                {top10.map((d: any, i) => {
+                  return (
+                    <VictoryAxis
+                      label={d.name}
+                      style={{
+                        axis: {
+                          stroke: "#D9D9D9",
+                        },
+                        tickLabels: {
+                          fill: "#D9D9D9",
+                          fontSize: 10,
+                          fontFamily: "Montserrat",
+                        },
+                      }}
+                    />
+                  );
+                })}
+              </VictoryChart>
+            </div>
+          </div>
+          <div className={classes.pieChart}>
+            <svg width="600" height="400" viewBox="0 0 400 400">
+              <VictoryPie
+                colorScale={["transparent"]}
                 data={top10}
-                barWidth={20}
+                labelRadius={180}
+                labels={({ datum }) => `${datum.x}`}
+                standalone={false}
+                radius={150}
                 style={{
-                  data: {
-                    fill: ({ datum }) => datum.color,
+                  labels: {
+                    fontSize: 20,
+                    fill: "#000E22",
                   },
                 }}
-                labels={({ datum }) => `${datum.y}`}
               />
-              {top10.map((d: any, i) => {
-                return (
-                  <VictoryAxis
-                    label={d.name}
-                    
-                  />
-                );
-              })}
-            </VictoryChart>
+              <VictoryPie
+                colorScale={["#275ca1", "#5789c9", "#83a2c9", "#B0C4DE"]}
+                data={top10}
+                labelRadius={125}
+                labels={({ datum }) => `${datum.y}%`}
+                standalone={false}
+                radius={150}
+                style={{
+                  labels: {
+                    fontSize: 12,
+                    fill: "#fff",
+                  },
+                }}
+                events={[
+                  {
+                    target: "data",
+                    eventHandlers: {
+                      onMouseOut: () => {
+                        return [{
+                          target: "labels",
+                          mutation: () => null,
+                        },
+                        {
+                          mutation: () => null,
+                        }
+                        ];
+                      },
+                    },
+                  },
+                  {
+                    target: "data",
+                    eventHandlers: {
+                      onMouseOver: () => {
+                        return [{
+                          target: "labels",
+                          mutation: (props) => ({
+                            style: Object.assign({}, props.style, {
+                              fontSize: 20
+                            }),
+
+                          }),
+                        },
+                        {
+                          mutation: (props) => ({
+                            radius: 170,
+                            sliceStartAngle: props.datum.startAngle + 5,
+                            sliceEndAngle: props.datum.endAngle - 5,
+                            labelRadius: 160,
+                            style: Object.assign({}, props.style, {
+                              fill: "tomato",
+                            }),
+
+                          }),
+                        }
+                        ];
+                      },
+
+                    }
+                  }
+                ]}
+              />
+            </svg>
           </div>
         </div>
       </div>

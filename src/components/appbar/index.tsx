@@ -46,7 +46,7 @@ export default function NavAppBar() {
           </Button>
           <Button
             color="inherit"
-            className={classes.button}
+            className={location.pathname==='/how-to-use'? classes.buttonSelected: classes.button}
             onClick={() => changeRoute("/how-to-use")}
           >
             How to Use
