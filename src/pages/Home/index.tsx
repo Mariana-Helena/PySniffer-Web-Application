@@ -6,12 +6,17 @@ import { Button, ListItem, ListItemText } from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import InsertDriveFileOutlinedIcon from '@material-ui/icons/InsertDriveFileOutlined';
 import SettingsApplicationsOutlined from '@material-ui/icons/SettingsApplicationsOutlined';
+import libs from '../../data/libs.json';
+import files from '../../data/files.json';
 
 export default function Home() {
   const classes = useStyles();
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
+    libs.map((data)=>{
+      console.log(data.name)
+    })
   }, []);
 
   const modulesList = [
