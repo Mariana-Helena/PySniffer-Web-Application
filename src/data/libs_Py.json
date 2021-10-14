@@ -1,0 +1,51 @@
+[
+     {
+        "name": "pillow",
+        "amount": 30
+      },
+      {
+        "name": "matplotlib",
+        "amount": 23
+      },
+      {
+        "name": "numpy",
+        "amount": 20
+      },
+      {
+        "name": "requests",
+        "amount": 18
+      },
+      {
+        "name": "pytest",
+        "amount": 17
+      },
+      {
+        "name": "scipy",
+        "amount": 15
+      },
+      {
+        "name": "beautifulsoup",
+        "amount": 12
+      },
+      {
+        "name": "pandas",
+        "amount": 10
+      },
+      {
+        "name": "sklearn",
+        "amount": 5
+      },
+       {
+        "name": "seaborn",
+        "amount": 3
+      },
+      {
+        "name": "flask",
+        "amount": 1
+      },
+      {
+        "name": "pymongo",
+        "amount": 1
+      }
+]
+  

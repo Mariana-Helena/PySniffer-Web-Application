@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import useStyles from "./styles";
 import background from "../../assets/img/Background.png";
 import NavAppBar from "../../components/appbar";
@@ -7,48 +7,59 @@ import GitHubIcon from "@material-ui/icons/GitHub";
 import InsertDriveFileOutlinedIcon from '@material-ui/icons/InsertDriveFileOutlined';
 import SettingsApplicationsOutlined from '@material-ui/icons/SettingsApplicationsOutlined';
 import libs from '../../data/libs.json';
-import files from '../../data/files.json';
+import libsPy from '../../data/libs_Py.json';
+import filesJson from '../../data/files.json';
 
 export default function Home() {
   const classes = useStyles();
 
+  const [modulesList, setModulesList] = useState([]);
+  const [projects, setProjects] = useState(0);
+  const [files, setFiles] = useState(0);
+  const [modules, setModules] = useState(0);
+
   useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
+    var list: any = [];
     libs.map((data)=>{
-      console.log(data.name)
-    })
+      var obj = {
+        name: data.name,
+        amount: data.amount,
+        desc: 'From external library.'
+      };
+      list.push(obj);
+    });
+    libsPy.map((data)=>{
+      var obj = {
+        name: data.name,
+        amount: data.amount,
+        desc: 'From standard library.'
+      };
+      list.push(obj);
+    });
+    
+    list.sort( compare );
+    setModulesList(list);
+
+    setModules(libs.length + libsPy.length);
+
+    setProjects(filesJson.length);
+    var qt = 0;
+    filesJson.forEach(e => {
+      qt += e.pyfiles;
+    });
+    setFiles(qt);
   }, []);
 
-  const modulesList = [
-    {
-      name: "Module Name 1",
-      desc: "Something about it.",
-    },
-    {
-      name: "Module Name 2",
-      desc: "Something about it.",
-    },
-    {
-      name: "Module Name 3",
-      desc: "Something about it.",
-    },
-    {
-      name: "Module Name 4",
-      desc: "Something about it.",
-    },
-    {
-      name: "Module Name 5",
-      desc: "Something about it.",
-    },
-    {
-      name: "Module Name 5",
-      desc: "Something about it.",
-    },
-  ];
-
-  const projects = 30;
-  const files = 321;
-  const modules = 673;
+  function compare( a: any, b: any ) {
+    if ( a.amount < b.amount ){
+      return 1;
+    }
+    if ( a.amount > b.amount ){
+      return -1;
+    }
+    return 0;
+  }  
 
   return (
     <div>
