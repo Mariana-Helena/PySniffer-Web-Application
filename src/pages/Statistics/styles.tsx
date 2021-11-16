@@ -5,9 +5,9 @@ const useStyles = makeStyles((theme: Theme) =>
     background: {
       width: "100%",
       minWidth:"1500px",
-      height: "auto",
+      height: "auto",     
       backgroundSize: "cover",
-      backgroundColor: "#D9D9D9"
+      backgroundColor: "#000E22",
     },
     body: {
       width: "100%",

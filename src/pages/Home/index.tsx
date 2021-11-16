@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import useStyles from "./styles";
 import NavAppBar from "../../components/appbar";
-import { Button, ListItem, ListItemText } from "@material-ui/core";
+import { Button, ListItem, ListItemText, Radio, RadioGroup, FormControl,
+FormControlLabel, TextField } from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import InsertDriveFileOutlinedIcon from '@material-ui/icons/InsertDriveFileOutlined';
 import SettingsApplicationsOutlined from '@material-ui/icons/SettingsApplicationsOutlined';
@@ -10,6 +11,7 @@ import libsPy from '../../data/libs_Py.json';
 import filesJson from '../../data/files.json';
 import CsvDownloader from 'react-csv-downloader';
 import teamWork from '../../assets/img/teamWork.png';
+import SearchIcon from '@material-ui/icons/Search';
 
 export default function Home() {
   const classes = useStyles();
@@ -18,6 +20,9 @@ export default function Home() {
   const [projects, setProjects] = useState(0);
   const [files, setFiles] = useState(0);
   const [modules, setModules] = useState(0);
+  const [searchModule, setSearchModule] = useState("");
+  const [foundModulesList, setFoundModulesList] = useState<any>([]);
+  const [selected, setSelected] = useState('all');
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -40,13 +45,9 @@ export default function Home() {
       };
       list.push(obj);
     });
-    console.log(list);
     list.sort(compare);
-    console.log(list);
     setModulesList(list);
-
     setModules(libs.length + libsPy.length);
-
     setProjects(filesJson.length);
     setProjects(129);
     var qt = 0;
@@ -93,12 +94,14 @@ export default function Home() {
   */
   const getModules = () => {
     for (var i = 0; i < modulesList.length; i++) {
+      if(selected == 'all' || modulesList[i].desc == selected){
         var event = {
           first: modulesList[i].name,
           second: modulesList[i].amount,
           third: modulesList[i].desc
         };
         CSVdata.push(event);
+      }
     }
     return CSVdata;
   };
@@ -108,6 +111,22 @@ export default function Home() {
       "https://github.com/SinaraPimenta/PySniffer/archive/refs/heads/main.zip",
       "PySniffer.zip"
     );
+  };
+
+  const search = () => {
+    setFoundModulesList(modulesList.filter((p)=> p.name.includes(searchModule)));
+  };
+
+  const handleSearchChange = (event) => {
+        if (event.key === "Enter") {
+          const searchString = (event.target.value).toLocaleLowerCase();
+          setSearchModule(searchString)
+          setFoundModulesList(modulesList.filter((p)=> p.name.includes(searchString)));
+        }
+  };
+
+  const updateSelection = (event, value) => {
+    setSelected(value);
   };
 
   return (
@@ -142,9 +161,30 @@ export default function Home() {
             </span>
             <br />
             <span className={classes.rankingTitle}>List of Found Modules</span>
-            <br />
+            <br />            
+            <div>
+            <FormControl component="fieldset">
+              <RadioGroup row 
+                aria-label="libs"
+                defaultValue="all"
+                name="radio-buttons-group"
+                value={selected} onChange={updateSelection}
+              >
+                <FormControlLabel value="all" control={<Radio classes={{root: classes.radio, checked: classes.checked}}/>} label="All Libraries" />
+                <FormControlLabel value="Standard Library" control={<Radio classes={{root: classes.radio, checked: classes.checked}}/>} label="Standard Library" />
+                <FormControlLabel value="External Library" control={<Radio classes={{root: classes.radio, checked: classes.checked}}/>} label="External Libraries" />
+              </RadioGroup>
+            </FormControl>
+            </div>
+            <TextField id="outlined-basic"  variant="outlined" className={classes.searchBar}
+              onBlur={(e)=> setSearchModule(e.target.value)} 
+              onKeyDown={handleSearchChange}
+            />
+            <Button  onClick={search} className={classes.searchButton}>              
+             <SearchIcon className={classes.searchIcon}/>
+            </Button>
             <div className={classes.list}>
-              {modulesList.map((mod: any, index: any) => (
+              {searchModule == '' ? modulesList.filter((m) => selected == 'all' || m.desc == selected).map((mod: any, index: any) => (
                 <ListItem className={classes.listItem}>
                   <span className={classes.number}>{index+1}</span>
                   <ListItemText>
@@ -153,7 +193,18 @@ export default function Home() {
                     <span className={classes.modDesc}>From {mod.desc}</span>
                   </ListItemText>
                 </ListItem>
-              ))}
+              )):
+              foundModulesList.map((mod: any, index: any) => (
+                <ListItem className={classes.listItem}>
+                  <span className={classes.number}>{index+1}</span>
+                  <ListItemText>
+                    <span className={classes.modName}>{mod.name} ({mod.amount} projects)</span>
+                    <br />
+                    <span className={classes.modDesc}>From {mod.desc}</span>
+                  </ListItemText>
+                </ListItem>
+              ))
+              }
             </div>
             <CsvDownloader
               filename={"ModulesList"}

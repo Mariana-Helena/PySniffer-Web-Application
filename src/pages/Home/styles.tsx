@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     body: {
       width: "100%",
-      height: "1100px",
+      height: "1400px",
     },
     button: {
       backgroundColor: "#B48C3E !important",
@@ -89,6 +89,30 @@ const useStyles = makeStyles((theme: Theme) =>
     modDesc: {
       color: "#000",
       fontFamily: "Montserrat !important",
+    },
+    radio: {
+      '&$checked': {
+        color: '#B48C3E !important'
+      }
+    },
+    checked: {},
+    searchBar: {
+      width: "450px",
+      '& .MuiInput-underline:after': {
+        borderBottomColor: '#B48C3E',
+      },
+      '& .MuiOutlinedInput-root': {
+        '&.Mui-focused fieldset': {
+          borderColor: '#B48C3E',
+        },
+      }
+    },
+    searchButton: {
+      height: "56px",
+      backgroundColor: "#D9D9D9",
+    },
+    searchIcon: {
+      color: "#B48C3E",
     },
     list: {      
       backgroundColor: "#D9D9D9",

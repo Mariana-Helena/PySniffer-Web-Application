@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import useStyles from "./styles";
 import NavAppBar from "../../components/appbar";
 import { VictoryChart, VictoryBar, VictoryAxis, VictoryPie } from "victory";
-import background from "../../assets/img/Background2.png";
+import libs from '../../data/libs.json';
+import libsPy from '../../data/libs_Py.json';
 interface chartBar {
   x: string;
   y: number;
@@ -18,60 +19,8 @@ export default function Statistics() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const example = {
-    lib_list: [
-      {
-        name: "pymongo",
-        amount: 1,
-      },
-      {
-        name: "matplotlib",
-        amount: 23,
-      },
-      {
-        name: "numpy",
-        amount: 20,
-      },
-      {
-        name: "sklearn",
-        amount: 5,
-      },
-      {
-        name: "pytest",
-        amount: 17,
-      },
-      {
-        name: "scipy",
-        amount: 15,
-      },
-      {
-        name: "beautifulsoup",
-        amount: 12,
-      },
-      {
-        name: "pandas",
-        amount: 10,
-      },
-      {
-        name: "requests",
-        amount: 18,
-      },
-      {
-        name: "seaborn",
-        amount: 3,
-      },
-      {
-        name: "flask",
-        amount: 1,
-      },
-      {
-        name: "pillow",
-        amount: 30,
-      },
-    ],
-  };
-
   const [top10, setTop10] = useState([]);
+  const [top10Py, setTop10Py] = useState([]);
 
   const colors = [
     "darkred",
@@ -87,13 +36,15 @@ export default function Statistics() {
   ];
 
   useEffect(() => {
-    getTop10();
+    setTop10Py(getTop10(libsPy));
+    setTop10(getTop10(libs));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const getTop10 = () => {
-    var list = example.lib_list;
-    list = sortList(list).slice(0, 10);
+  const getTop10 = (libsList) => {
+    var list = sortList(libsList);
+    list.reverse();
+    list = list.slice(0, 10);
     var bars: any = [];
     var i = 0;
     list.forEach((element) => {
@@ -105,12 +56,12 @@ export default function Statistics() {
       bars.push(bar);
       i++;
     });
-    setTop10(bars.reverse());
+    return bars.reverse();
   };
 
   const sortList = (list: any) => {
     return list.sort((first: any, second: any) =>
-      first.amount < second.amount ? 1 : first.amount > second.amount ? -1 : 0
+      first.amount - second.amount  
     );
   };
 
@@ -119,7 +70,6 @@ export default function Statistics() {
       <NavAppBar />
       <div
         className={classes.background}
-        style={{ backgroundImage: `url(${background})` }}
       >
         <div className={classes.body}>
           <div>
@@ -144,6 +94,42 @@ export default function Statistics() {
                   labels={({ datum }) => `${datum.y}`}
                 />
                 {top10.map((d: any, i) => {
+                  return (
+                    <VictoryAxis
+                      label={d.name}
+                      style={{
+                        axis: {
+                          stroke: "#D9D9D9",
+                        },
+                        tickLabels: {
+                          fill: "#D9D9D9",
+                          fontSize: 10,
+                          fontFamily: "Montserrat",
+                        },
+                      }}
+                    />
+                  );
+                })}
+              </VictoryChart>
+            </div>
+            <div className={classes.chart}>
+              <VictoryChart domainPadding={10}>
+                <VictoryBar
+                  horizontal
+                  data={top10Py}
+                  barWidth={20}
+                  style={{
+                    data: {
+                      fill: ({ datum }) => datum.color,
+                    },
+                    labels: {
+                      fontSize: 10,
+                      fill: "#D9D9D9",
+                    },
+                  }}
+                  labels={({ datum }) => `${datum.y} `}
+                />
+                {top10Py.map((d: any, i) => {
                   return (
                     <VictoryAxis
                       label={d.name}
