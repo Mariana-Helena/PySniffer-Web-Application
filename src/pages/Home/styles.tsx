@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     body: {
       width: "100%",
-      height: "1400px",
+      height: "1200px",
     },
     button: {
       backgroundColor: "#B48C3E !important",

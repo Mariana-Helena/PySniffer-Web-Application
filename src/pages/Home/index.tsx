@@ -114,15 +114,17 @@ export default function Home() {
   };
 
   const search = () => {
-    setFoundModulesList(modulesList.filter((p)=> p.name.includes(searchModule)));
+    setFoundModulesList(modulesList.filter((m)=> (selected == 'all' && m.name.includes(searchModule)) || 
+      (selected == m.desc && m.name.includes(searchModule))));
   };
 
   const handleSearchChange = (event) => {
-        if (event.key === "Enter") {
-          const searchString = (event.target.value).toLocaleLowerCase();
-          setSearchModule(searchString)
-          setFoundModulesList(modulesList.filter((p)=> p.name.includes(searchString)));
-        }
+    if (event.key === "Enter") {
+      const searchString = (event.target.value).toLocaleLowerCase();
+      setSearchModule(searchString);      
+      setFoundModulesList(modulesList.filter((m)=> (selected == 'all' && m.name.includes(searchString)) || 
+      (selected == m.desc && m.name.includes(searchString))));
+    }
   };
 
   const updateSelection = (event, value) => {
