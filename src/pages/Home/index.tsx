@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import useStyles from "./styles";
-import background from "../../assets/img/Background.png";
 import NavAppBar from "../../components/appbar";
 import { Button, ListItem, ListItemText } from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
@@ -10,11 +9,12 @@ import libs from '../../data/libs.json';
 import libsPy from '../../data/libs_Py.json';
 import filesJson from '../../data/files.json';
 import CsvDownloader from 'react-csv-downloader';
+import teamWork from '../../assets/img/teamWork.png';
 
 export default function Home() {
   const classes = useStyles();
 
-  const [modulesList, setModulesList] = useState([]);
+  const [modulesList, setModulesList] = useState<any>([]);
   const [projects, setProjects] = useState(0);
   const [files, setFiles] = useState(0);
   const [modules, setModules] = useState(0);
@@ -22,32 +22,36 @@ export default function Home() {
   useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     var list: any = [];
-    libs.map((data) => {
+
+    libs.forEach(data => {
       var obj = {
         name: data.name,
-        amount: data.amount,
+        amount: parseInt(data.amount),
         desc: 'External Library'
       };
       list.push(obj);
     });
-    libsPy.map((data) => {
+
+    libsPy.forEach(data => {
       var obj = {
         name: data.name,
-        amount: data.amount,
+        amount: parseInt(data.amount),
         desc: 'Standard Library'
       };
       list.push(obj);
     });
-
+    console.log(list);
     list.sort(compare);
+    console.log(list);
     setModulesList(list);
 
     setModules(libs.length + libsPy.length);
 
     setProjects(filesJson.length);
+    setProjects(129);
     var qt = 0;
     filesJson.forEach(e => {
-      qt += e.pyfiles;
+      qt += parseInt(e.amount_of_pyfiles);
     });
     setFiles(qt);
   }, []);
@@ -65,7 +69,7 @@ export default function Home() {
   /**
  * CSV data
  */
-  const CSVdata = [];
+  const CSVdata: any = [];
   /**
    * CSV columns
    */
@@ -99,13 +103,18 @@ export default function Home() {
     return CSVdata;
   };
 
+  const saveFile = () => {
+    saveAs(
+      "https://github.com/SinaraPimenta/PySniffer/archive/refs/heads/main.zip",
+      "PySniffer.zip"
+    );
+  };
 
   return (
     <div>
       <NavAppBar />
       <div
         className={classes.background}
-        style={{ backgroundImage: `url(${background})` }}
       >
         <div className={classes.body}>
           <div className={classes.textDiv}>
@@ -114,25 +123,20 @@ export default function Home() {
             <span className={classes.title}>PySniffer</span>
             <br />
             <span className={classes.text}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              eget mauris eleifend, hendrerit ante id, ornare sem. Aliquam erat
-              volutpat. Aliquam ornare vehicula ipsum. Pellentesque habitant
-              morbi tristique senectus et netus et malesuada fames ac turpis
-              egestas. Vestibulum congue, purus ac imperdiet mollis, eros odio
-              vehicula metus, et blandit nibh est nec leo. Maecenas ornare
-              posuere nunc eget elementum. Etiam consectetur tincidunt tellus
-              rhoncus pellentesque. Sed rhoncus gravida massa, sit amet iaculis
-              nunc sagittis eu. Maecenas dignissim est ante, nec malesuada
-              turpis fringilla sit amet. Vivamus finibus arcu arcu. Cras
-              sagittis ante sit amet nunc tempus, pellentesque scelerisque
-              tellus pellentesque.
+              The principle of the tool, called PySniffer, is to perform static analysis 
+              of Python code and verify imports, generating a listof external modules and 
+              a list of modules from the standard li-brary present in the repositories with 
+              Python scripts best placedon GitHub, based on their stars. In addition, the 
+              tool also gene-rates graphics to facilitate the understanding of the results 
+              andallows the user to analyze his own project in order to verify ifthe libraries 
+              used by him are present in the generated lists.
             </span>
-          </div>
-          <Button variant="contained" className={classes.button}>
-            <span className={classes.buttonText}>Install</span>
-          </Button>
-          <br />
-          <div className={classes.rankingDiv}>
+            <br />       
+            <Button variant="contained" className={classes.button} onClick={saveFile}>
+              <span className={classes.buttonText}>Try it</span>
+            </Button>
+            <br />
+            <div className={classes.rankingDiv}>
             <span className={classes.rankingSubtitle}>
               Python Open Source Projects*
             </span>
@@ -140,11 +144,11 @@ export default function Home() {
             <span className={classes.rankingTitle}>List of Found Modules</span>
             <br />
             <div className={classes.list}>
-              {modulesList.map((mod, index) => (
-                <ListItem>
-                  <span className={classes.number}>{index + 1}</span>
+              {modulesList.map((mod: any, index: any) => (
+                <ListItem className={classes.listItem}>
+                  <span className={classes.number}>{index+1}</span>
                   <ListItemText>
-                    <span className={classes.modName}>{mod.name}</span>
+                    <span className={classes.modName}>{mod.name} ({mod.amount} projects)</span>
                     <br />
                     <span className={classes.modDesc}>From {mod.desc}</span>
                   </ListItemText>
@@ -163,6 +167,15 @@ export default function Home() {
               </Button>
             </CsvDownloader>
           </div>
+          </div>   
+          
+          <div className={classes.img}>
+          <img src={teamWork}/>
+          </div>
+          <div >
+          </div>
+          <br />
+          
           <div className={classes.div}>
             <div className={classes.infoDiv}>
               <GitHubIcon className={classes.icon} />
@@ -190,7 +203,7 @@ export default function Home() {
             </div>
             <br />
             <div className={classes.noteDiv}>
-              <span className={classes.note}> *Data were collected from Python projects in open source GitHub repositories, being selected those with the highest score (highest number of stars),etc ..... Projects aimed at teaching were not considered and ...</span>
+              <span className={classes.note}> *Data were collected from Python projects in open source GitHub repositories, being selected those with more than 10,000 stars and meeting some criteria, which are listed in this project's paper.</span>
             </div>
           </div>
 

@@ -17,7 +17,7 @@ export default function NavAppBar() {
   };
 
   const openGitHub = () => {
-    //window.open("http://www.google.com");
+    window.open("https://github.com/SinaraPimenta/PySniffer");
   };
 
   const openPaper = () => {
@@ -33,7 +33,7 @@ export default function NavAppBar() {
             className={classes.menuButton}
             color="inherit"
             aria-label="menu"
-            onClick={() => changeRoute("/home")}
+            onClick={() => changeRoute("/")}
           >
             <img src={logo} alt="Py Sniffer Logo" className={classes.logo} />
           </IconButton>
@@ -53,14 +53,14 @@ export default function NavAppBar() {
           </Button>
           <Button
             color="inherit"
-            className={classes.button}
+            className={classes.button2}
             onClick={openGitHub}
           >
             GitHub
           </Button>
           <Button
             color="inherit"
-            className={classes.button}
+            className={classes.button2}
             onClick={openPaper}
           >
             Paper

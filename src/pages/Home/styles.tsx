@@ -5,16 +5,16 @@ const useStyles = makeStyles((theme: Theme) =>
     background: {
       width: "100%",
       minWidth:"1500px",
-      height: "auto",
+      height: "auto",     
       backgroundSize: "cover",
+      backgroundColor: "#000E22",
     },
     body: {
       width: "100%",
-      height: "1400px",
+      height: "1100px",
     },
     button: {
       backgroundColor: "#B48C3E !important",
-      marginLeft: "30px !important",
       marginTop: "30px !important",
       width: "150px",
     },
@@ -28,10 +28,17 @@ const useStyles = makeStyles((theme: Theme) =>
       fontFamily: "Montserrat !important",
       paddingLeft: 5,
     },
+    img: {
+      paddingTop: "30px",
+      paddingLeft: "30px",  
+    },
     textDiv: {
       paddingTop: "80px",
-      paddingLeft: "30px",
-      width: "450px",
+      paddingLeft: "50px",
+      marginRight: "100px",
+      width: "550px",          
+      position:"relative",
+      float: "left",
     },
     title: {
       color: "#fff",
@@ -41,13 +48,15 @@ const useStyles = makeStyles((theme: Theme) =>
     text: {
       color: "#fff",
       fontFamily: "Montserrat !important",
-      wordBreak: "break-all",
+      wordBreak: "break-word",
     },
-    rankingDiv: {
-      paddingTop: "200px",
+    rankingDiv: {      
+      backgroundColor: "#D9D9D9",
+      borderRadius: '25px',
+      paddingTop: "30px",
+      paddingBottom: "30px",
+      marginTop: "50px",
       paddingLeft: "30px",
-      paddingRight: "220px",
-      width: "450px",
       display: "inline-block",
     },
     rankingSubtitle: {
@@ -57,7 +66,7 @@ const useStyles = makeStyles((theme: Theme) =>
       fontWeight: "bolder",
     },
     rankingTitle: {
-      color: "#000",
+      color: "#000E22",
       fontFamily: "Montserrat !important",
       fontSize: "35px !important",
     },
@@ -65,6 +74,11 @@ const useStyles = makeStyles((theme: Theme) =>
       color: "#B48C3E",
       fontSize: "60px !important",
       marginRight: "20px",
+    },
+    listItemTitle: {
+      color: "#B48C3E",
+      fontSize: "25px !important",
+      marginRight: "10px",
     },
     modName: {
       color: "#000",
@@ -76,10 +90,11 @@ const useStyles = makeStyles((theme: Theme) =>
       color: "#000",
       fontFamily: "Montserrat !important",
     },
-    list: {
-      marginTop: "20px",
+    list: {      
+      backgroundColor: "#D9D9D9",
       maxHeight: "350px",
       height: "350px",
+      width: "550px",
       overflowY: "scroll",
       '&::-webkit-scrollbar': {
         width: '5px',
@@ -91,6 +106,9 @@ const useStyles = makeStyles((theme: Theme) =>
         background: '#888',
       },
     },
+    listItem: {      
+      padding: 0
+    },
     downloadButton: {
       backgroundColor: "#B48C3E !important",
       marginTop: "50px !important",
@@ -101,7 +119,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     infoDiv: {
       display: "inline-block",
-      marginLeft: "50px",
+      marginLeft: "30px",
     },
     icon: {
       fontSize: "100px  !important",
@@ -122,7 +140,7 @@ const useStyles = makeStyles((theme: Theme) =>
       fontSize: "60px !important",
     },
     noteDiv:{
-      width: "800px",
+      width: "850px",
       marginTop: "20px"
     },
     note: {

@@ -11,7 +11,7 @@ export default function Routes() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/home" exact component={Home} />
+        <Route path="/" exact component={Home} />
         <Route path="/statistics" exact component={Statistics} />
         <Route path="/how-to-use" exact component={HowToUse} />
       </Switch>
