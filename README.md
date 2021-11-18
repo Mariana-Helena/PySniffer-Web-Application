@@ -7,7 +7,7 @@
 
 This repository hosts the PySniffer Web Application, which is a platform for displaying the collected results and making the tool available. 
 
-The project was made for the Course Completion Thesis on Computer Engineering of Instituto Nacional de Telecomunicações (INATEL).
+The project was made for the Undergraduate Thesis on Computer Engineering of Instituto Nacional de Telecomunicações (INATEL).
 
  ### 🎯 Application purpose
 The objective is to offer a platform to more easily access the results collected by PySniffer and display this collected data in a more user-friendly way, making it easier to understand the information and what is possible to obtain through the use of the developed tool.
