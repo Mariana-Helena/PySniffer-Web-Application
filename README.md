@@ -16,7 +16,7 @@ The objective is to offer a platform to more easily access the results collected
 
 - Allows the download of the PySniffer;
 - Displays the list of modules found by the tool;
-- Allows you to search the list and filter the result by module origin;
+- Allows you to search in the list and filter the result by module origin;
 - Allows you to download the list of modules in CSV format;
 - Displays results collected with PySniffer through graphs.
 
