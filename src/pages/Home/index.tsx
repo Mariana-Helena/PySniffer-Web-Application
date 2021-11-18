@@ -12,6 +12,7 @@ import filesJson from '../../data/files.json';
 import CsvDownloader from 'react-csv-downloader';
 import teamWork from '../../assets/img/teamWork.png';
 import SearchIcon from '@material-ui/icons/Search';
+import { saveAs } from 'file-saver';
 
 export default function Home() {
   const classes = useStyles();
@@ -94,7 +95,7 @@ export default function Home() {
   */
   const getModules = () => {
     for (var i = 0; i < modulesList.length; i++) {
-      if(selected == 'all' || modulesList[i].desc == selected){
+      if(selected === 'all' || modulesList[i].desc === selected){
         var event = {
           first: modulesList[i].name,
           second: modulesList[i].amount,
@@ -114,20 +115,20 @@ export default function Home() {
   };
 
   const search = () => {
-    setFoundModulesList(modulesList.filter((m)=> (selected == 'all' && m.name.includes(searchModule)) || 
-      (selected == m.desc && m.name.includes(searchModule))));
+    setFoundModulesList(modulesList.filter((m: any)=> (selected === 'all' && m.name.includes(searchModule)) || 
+      (selected === m.desc && m.name.includes(searchModule))));
   };
 
-  const handleSearchChange = (event) => {
+  const handleSearchChange = (event: any) => {
     if (event.key === "Enter") {
       const searchString = (event.target.value).toLocaleLowerCase();
       setSearchModule(searchString);      
-      setFoundModulesList(modulesList.filter((m)=> (selected == 'all' && m.name.includes(searchString)) || 
-      (selected == m.desc && m.name.includes(searchString))));
+      setFoundModulesList(modulesList.filter((m:any)=> (selected === 'all' && m.name.includes(searchString)) || 
+      (selected === m.desc && m.name.includes(searchString))));
     }
   };
 
-  const updateSelection = (event, value) => {
+  const updateSelection = (event:any, value:any) => {
     setSelected(value);
   };
 
@@ -186,7 +187,7 @@ export default function Home() {
              <SearchIcon className={classes.searchIcon}/>
             </Button>
             <div className={classes.list}>
-              {searchModule == '' ? modulesList.filter((m) => selected == 'all' || m.desc == selected).map((mod: any, index: any) => (
+              {searchModule === '' ? modulesList.filter((m: any) => selected === 'all' || m.desc === selected).map((mod: any, index: any) => (
                 <ListItem className={classes.listItem}>
                   <span className={classes.number}>{index+1}</span>
                   <ListItemText>

@@ -1,7 +1,6 @@
 import React from "react";
 import useStyles from "./styles";
 import NavAppBar from "../../components/appbar";
-import background from "../../assets/img/Background3.png";
 
 export default function HowToUse() {
   const classes = useStyles();
@@ -11,7 +10,6 @@ export default function HowToUse() {
       <NavAppBar />
       <div
         className={classes.background}
-        style={{ backgroundImage: `url(${background})` }}
       >
         <div className={classes.body}></div>
       </div>

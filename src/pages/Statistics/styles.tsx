@@ -23,12 +23,22 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: "50px"
     },
     textDiv: {
-      paddingLeft: "30px",
+      paddingTop: "30px",
+      paddingLeft: "50px",
+      marginRight: "100px",
+      width: "350px",          
+      position:"relative",
+      float: "left",
     },
-    title: {
+    text: {
       color: "#fff",
       fontFamily: "Montserrat !important",
-      fontSize: "40px !important",
+      wordBreak: "break-word",   
+    },
+    title: {
+      color: "#E2B75F",
+      fontFamily: "Montserrat !important",
+      fontSize: "30px !important",    
     },
     subtitle: {
       color: "#E2B75F",
