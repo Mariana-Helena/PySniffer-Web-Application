@@ -1,46 +1,72 @@
-# Getting Started with Create React App
+#  PySniffer Web Application 💻
+<p align="center">
+<img src="https://github.com/Mariana-Helena/PySniffer-Web-Application/blob/main/src/assets/img/YellowLogo.png" height="150" width="150" >
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[PySniffer](https://github.com/SinaraPimenta/PySniffer) is a tool to analyze Open-Source Python projects hosted on GitHub, looking for the modules used (from the Standard Library as well as from external libraries), in order to generate statistics about the usage of Python modules. 
 
-## Available Scripts
+This repository hosts the PySniffer Web Application, which is a platform for displaying the collected results and making the tool available. 
 
-In the project directory, you can run:
+The project was made for the Undergraduate Thesis on Computer Engineering of Instituto Nacional de Telecomunicações (INATEL).
 
-### `npm start`
+ ### 🎯 Application purpose
+The objective is to offer a platform to more easily access the results collected by PySniffer and display this collected data in a more user-friendly way, making it easier to understand the information and what is possible to obtain through the use of the developed tool.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 💻 Functionalities
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Allows the download of the PySniffer;
+- Displays the list of modules found by the tool;
+- Allows you to search in the list and filter the result by module origin;
+- Allows you to download the list of modules in CSV format;
+- Displays results collected with PySniffer through graphs.
 
-### `npm test`
+### 🚀 Starting
+ To get a copy of the project in order to run/test it, clone the repository into a folder on your machine:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+git clone https://github.com/Mariana-Helena/PySniffer-Web-Application.git
+```
 
-### `npm run build`
+### 📋 Pre-Requisites
+- npm
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🔧 Installing dependencies
+ To install the project dependencies it's necessary to type the command in terminal:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+npm install 
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 👩‍💻 Running the project
+For project execution, type:
 
-### `npm run eject`
+```
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+After execution, the web page will run on localhost 3000.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 🛠️ Build with
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**Front-End**: [React](https://pt-br.reactjs.org/)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**Graphical User Interface Components**: [Material-UI](https://material-ui.com/pt/)
 
-## Learn More
+**Dependency Management**: [npm](https://www.npmjs.com/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Version control**: [GitHub](https://github.com/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## ✒️ Authors
+* **Luana Gribel Ito** - [Luana](https://github.com/luanagribel)
+* **Mariana Helena Inês Moreira** - [Mariana](https://github.com/Mariana-Helena)
+* **Sarah Brandão Souza** - [Sarah](https://github.com/SarahBrandao)
+* **Sinara Pimenta Medeiros** - [Sinara](https://github.com/SinaraPimenta)
+
+## 👨‍🏫 Advisor
+* **Phyllipe de Souza Lima Francisco** - [Phyl](https://github.com/phillima)
+
+
+
+⌨️ with ❤️ by Luana, Mariana, Sarah e Sinara 😊
+
+
