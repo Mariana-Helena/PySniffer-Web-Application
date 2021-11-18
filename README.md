@@ -1,4 +1,4 @@
-# 💻 PySniffer Web Application 
+#  PySniffer Web Application 💻
 <p align="center">
 <img src="https://github.com/Mariana-Helena/PySniffer-Web-Application/blob/main/src/assets/img/YellowLogo.png" height="150" width="150" >
 </p>
@@ -50,7 +50,7 @@ After execution, the web page will run on localhost 3000.
 
 **Front-End**: [React](https://pt-br.reactjs.org/)
 
-**Graphical User Interface**: [Material-UI](https://material-ui.com/pt/)
+**Graphical User Interface Components**: [Material-UI](https://material-ui.com/pt/)
 
 **Dependency Management**: [npm](https://www.npmjs.com/)
 
