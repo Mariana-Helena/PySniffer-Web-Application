@@ -21,7 +21,7 @@ export default function NavAppBar() {
   };
 
   const openPaper = () => {
-    //window.open("http://www.google.com");
+    //window.open("paper url");
   };
 
   return (
@@ -46,13 +46,6 @@ export default function NavAppBar() {
           </Button>
           <Button
             color="inherit"
-            className={location.pathname==='/how-to-use'? classes.buttonSelected: classes.button}
-            onClick={() => changeRoute("/how-to-use")}
-          >
-            How to Use
-          </Button>
-          <Button
-            color="inherit"
             className={classes.button2}
             onClick={openGitHub}
           >
@@ -64,13 +57,6 @@ export default function NavAppBar() {
             onClick={openPaper}
           >
             Paper
-          </Button>
-          <Button
-            color="inherit"
-            className={classes.button}
-            onClick={() => changeRoute("/about-us")}
-          >
-            About us
           </Button>
         </Toolbar>
       </AppBar>
