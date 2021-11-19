@@ -1,13 +1,9 @@
 import React, { useCallback, useState } from "react";
 import { CssBaseline} from "@material-ui/core";
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
-import img1 from '../../assets/img/img1.png';
-import img2 from '../../assets/img/img2.png';
-import img3 from '../../assets/img/img3.png';
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import { photos } from "./photos";
-//const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const theme = createTheme();
 
@@ -25,9 +21,6 @@ export default function GalleryComponent() {
     setViewerIsOpen(false);
   };
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <main>
       <div>
       <Gallery photos={photos} onClick={openLightbox} />
       <ModalGateway>
@@ -41,11 +34,9 @@ export default function GalleryComponent() {
                 caption: 'x.title'
               }))}
             />
-                      </Modal>
+          </Modal>
         ) : null}
       </ModalGateway>
     </div>
-      </main>
-    </ThemeProvider>
   );
 }

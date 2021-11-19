@@ -1,41 +1,50 @@
+import img1 from '../../data/statistics/image1.png';
+import img2 from '../../data/statistics/image2.png';
+import img3 from '../../data/statistics/image3.png';
+import img4 from '../../data/statistics/image4.png';
+import img5 from '../../data/statistics/image5.png';
+import img6 from '../../data/statistics/image6.png';
+import img7 from '../../data/statistics/image7.png';
+import img8 from '../../data/statistics/image8.png';
+
 export const photos = [
     {
-      src: "https://github.com/Mariana-Helena/PySniffer-Web-Application/blob/main/src/data/statistics/image1.PNG",
+      src: img1,
       width: 4,
       height: 3
     },
     {
-      src: "https://github.com/Mariana-Helena/PySniffer-Web-Application/blob/main/src/data/statistics/image2.PNG",
+      src: img2,
       width: 1,
       height: 1
     },
     {
-      src: "https://github.com/Mariana-Helena/PySniffer-Web-Application/blob/main/src/data/statistics/image3.PNG",
+      src: img3,
       width: 3,
       height: 4
     },
     {
-      src: "https://github.com/Mariana-Helena/PySniffer-Web-Application/blob/main/src/data/statistics/image4.PNG",
+      src: img4,
+      width: 5,
+      height: 4
+    },
+    {
+      src: img5,
       width: 3,
       height: 4
     },
     {
-      src: "https://github.com/Mariana-Helena/PySniffer-Web-Application/blob/main/src/data/statistics/image5.PNG",
-      width: 3,
-      height: 4
-    },
-    {
-      src: "https://github.com/Mariana-Helena/PySniffer-Web-Application/blob/main/src/data/statistics/image6.PNG",
+      src: img8,
       width: 4,
       height: 3
     },
     {
-      src: "https://github.com/Mariana-Helena/PySniffer-Web-Application/blob/main/src/data/statistics/image7.PNG",
+      src: img7,
       width: 3,
       height: 4
     },
     {
-      src: "https://github.com/Mariana-Helena/PySniffer-Web-Application/blob/main/src/data/statistics/image8.PNG",
+      src: img6,
       width: 4,
       height: 3
     }

@@ -135,9 +135,7 @@ export default function Home() {
   return (
     <div>
       <NavAppBar />
-      <div
-        className={classes.background}
-      >
+      <div>
         <div className={classes.body}>
           <div className={classes.textDiv}>
             <span className={classes.subtitle}>Python Module Statistics</span>

@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     body: {
       width: "100%",
-      height: "1400px",
+      height: "800px",
     },
     chart: {
       height: "480px",
@@ -25,7 +25,6 @@ const useStyles = makeStyles((theme: Theme) =>
     textDiv: {
       paddingTop: "30px",
       paddingLeft: "50px",
-      marginRight: "100px",
       width: "350px",          
       position:"relative",
       float: "left",
@@ -34,6 +33,12 @@ const useStyles = makeStyles((theme: Theme) =>
       color: "#fff",
       fontFamily: "Montserrat !important",
       wordBreak: "break-word",   
+    },
+    textHint: {
+      color: "#fff",
+      fontFamily: "Montserrat !important",
+      wordBreak: "break-word", 
+      fontSize: "10px !important",     
     },
     title: {
       color: "#E2B75F",
@@ -44,6 +49,10 @@ const useStyles = makeStyles((theme: Theme) =>
       color: "#E2B75F",
       fontFamily: "Montserrat !important",
       paddingLeft: 5,
+    },
+    container: {  
+      position: "relative",
+      float: "left"
     },
   })
 );
