@@ -144,11 +144,11 @@ export default function Home() {
             <br />
             <span className={classes.text}>
               The principle of the tool, called PySniffer, is to perform static analysis 
-              of Python code and verify imports, generating a listof external modules and 
-              a list of modules from the standard li-brary present in the repositories with 
-              Python scripts best placedon GitHub, based on their stars. In addition, the 
-              tool also gene-rates graphics to facilitate the understanding of the results 
-              andallows the user to analyze his own project in order to verify ifthe libraries 
+              of Python code and verify imports, generating a list of external modules and 
+              a list of modules from the standard library present in the repositories with 
+              Python scripts best placed on GitHub, based on their stars. In addition, the 
+              tool also generates graphics to facilitate the understanding of the results 
+              and allows the user to analyze his own project in order to verify if the libraries 
               used by him are present in the generated lists.
             </span>
             <br />       
@@ -255,7 +255,7 @@ export default function Home() {
             </div>
             <br />
             <div className={classes.noteDiv}>
-              <span className={classes.note}> *Data were collected from Python projects in open source GitHub repositories, being selected those with more than 10,000 stars and meeting some criteria, which are listed in this project's paper.</span>
+              <span className={classes.note}> *Data were collected from Python projects in open source GitHub repositories, being selected those with more than 10000 stars and meeting some criteria, which are listed in this project's paper.</span>
             </div>
           </div>
 
