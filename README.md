@@ -56,11 +56,25 @@ After execution, the web page will run on localhost 3000.
 
 **Version control**: [GitHub](https://github.com/)
 
+
+
 ## ✒️ Authors
-* **Luana Gribel Ito** - [Luana](https://github.com/luanagribel)
-* **Mariana Helena Inês Moreira** - [Mariana](https://github.com/Mariana-Helena)
-* **Sarah Brandão Souza** - [Sarah](https://github.com/SarahBrandao)
-* **Sinara Pimenta Medeiros** - [Sinara](https://github.com/SinaraPimenta)
+
+
+<table>
+  <tr>
+  <td align="center"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/76191273?v=4" width="100px;" alt=""/><br /><sub><b>Luana Gribel Ito https://github.com/luanagribel</b></sub></td>
+
+  <td align="center"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/70379653?v=4" width="100px;" alt=""/><br /><sub><b>Mariana Helena Inês Moreira https://github.com/Mariana-Helena</b></sub></td>
+  
+  <td align="center"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/72148078?v=4" width="100px;" alt=""/><br /><sub><b> Sarah Brandão Souza https://github.com/SarahBrandao </b></sub></td>
+   
+   <td align="center"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/51686881?v=4" width="100px;" alt=""/><br /><sub><b> Sinara Pimenta Medeiros https://github.com/SinaraPimenta</b></sub></td>
+
+</tr>
+<table>
+ 
+
 
 ## 👨‍🏫 Advisor
 * **Phyllipe de Souza Lima Francisco** - [Phyl](https://github.com/phillima)
